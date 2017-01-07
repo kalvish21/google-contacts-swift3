@@ -1,0 +1,6 @@
+framework module Pods_Google_Contacts_Viewer {
+  umbrella header "Pods-Google Contacts Viewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

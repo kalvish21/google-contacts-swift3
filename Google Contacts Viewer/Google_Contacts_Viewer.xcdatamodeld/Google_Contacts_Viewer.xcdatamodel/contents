@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EmailAddress" representedClassName="EmailAddress" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoogleContact" inverseName="emails" inverseEntity="GoogleContact" syncable="YES"/>
+    </entity>
+    <entity name="GoogleContact" representedClassName="GoogleContact" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryPhoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EmailAddress" inverseName="contact" inverseEntity="EmailAddress" syncable="YES"/>
+        <relationship name="numbers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PhoneNumber" inverseName="contact" inverseEntity="PhoneNumber" syncable="YES"/>
+    </entity>
+    <entity name="PhoneNumber" representedClassName="PhoneNumber" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoogleContact" inverseName="numbers" inverseEntity="GoogleContact" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GoogleContact" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="PhoneNumber" positionX="-54" positionY="27" width="128" height="75"/>
+        <element name="EmailAddress" positionX="-54" positionY="36" width="128" height="75"/>
+    </elements>
+</model>
