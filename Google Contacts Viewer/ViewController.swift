@@ -13,8 +13,9 @@ import CoreData
 import SDWebImage
 import CRToast
 
-class ViewController: UITableViewController, GIDSignInUIDelegate {
+class ViewController: UITableViewController, GIDSignInUIDelegate, UINavigationControllerDelegate {
 
+    let animator = TransitionAnimator()
     static let cacheName: String? = "ViewControllerCacheName"
     private var _fetchedResultsController: NSFetchedResultsController<GoogleContact>?
     private var fetchedResultsController: NSFetchedResultsController<GoogleContact> {
@@ -47,6 +48,7 @@ class ViewController: UITableViewController, GIDSignInUIDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: NSNotification.Name(rawValue: DataChanged), object: nil)
         
+        self.navigationController?.delegate = self
         self.setBarButtonItems()
     }
     
@@ -171,9 +173,14 @@ class ViewController: UITableViewController, GIDSignInUIDelegate {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         let doc: GoogleContact = self.fetchedResultsController.object(at: indexPath as IndexPath)
-        print(doc)
-        
         let controller = ViewContactViewController(coreDataId: doc.objectID)
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if (operation == UINavigationControllerOperation.push) {
+            return self.animator
+        }
+        return nil
     }
 }

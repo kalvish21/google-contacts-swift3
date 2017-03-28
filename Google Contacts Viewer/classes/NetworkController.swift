@@ -8,15 +8,20 @@
 
 import Foundation
 
-public class NetworkController: NSObject {
+public class NetworkController : NSObject {
     
-    private var session: URLSession
-    private var accessToken: String? = nil
+    private var session : URLSession
+    private var accessToken : String? = nil
+    
+    
+    //MARK: - Setup & Teardown
+    
     
     override init() {
         let sessionConfiguration : URLSessionConfiguration = URLSessionConfiguration.ephemeral
         self.session = URLSession.init(configuration: sessionConfiguration)
     }
+    
     
     init(accessToken: String) {
         let sessionConfiguration : URLSessionConfiguration = URLSessionConfiguration.ephemeral
@@ -25,6 +30,10 @@ public class NetworkController: NSObject {
         self.accessToken = accessToken
         self.session = URLSession.init(configuration: sessionConfiguration)
     }
+    
+    
+    //MARK: - Public Instance Methods
+    
     
     public func sendRequestToURL(url : NSURL, completion: @escaping (NSData?, HTTPURLResponse?, NSError?) -> ()) {
         let dataTask : URLSessionDataTask = (self.session.dataTask(with: url as URL, completionHandler:{(data, response, error) -> Void in

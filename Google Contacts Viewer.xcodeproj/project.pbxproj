@@ -13,6 +13,7 @@
 		742ACA5E1E08722F00EB744B /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742ACA5D1E08722F00EB744B /* CustomNavigationController.swift */; };
 		745837911E088317000935B2 /* ViewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745837901E088317000935B2 /* ViewContactViewController.swift */; };
 		745837931E089662000935B2 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745837921E089662000935B2 /* ContactCell.swift */; };
+		7458F7CF1E874F8200F98951 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7458F7CE1E874F8200F98951 /* TransitionAnimator.swift */; };
 		7487B57B1E075A0700D4CB9B /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B57A1E075A0700D4CB9B /* NetworkController.swift */; };
 		7487B5811E076A3100D4CB9B /* ContactsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B5801E076A3100D4CB9B /* ContactsHandler.swift */; };
 		7487B5831E076CB400D4CB9B /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B5821E076CB400D4CB9B /* Common.swift */; };
@@ -60,6 +61,7 @@
 		742ACA5D1E08722F00EB744B /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomNavigationController.swift; path = classes/CustomNavigationController.swift; sourceTree = "<group>"; };
 		745837901E088317000935B2 /* ViewContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewContactViewController.swift; path = classes/ViewContactViewController.swift; sourceTree = "<group>"; };
 		745837921E089662000935B2 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = classes/ContactCell.swift; sourceTree = "<group>"; };
+		7458F7CE1E874F8200F98951 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = classes/TransitionAnimator.swift; sourceTree = "<group>"; };
 		7487B57A1E075A0700D4CB9B /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = classes/NetworkController.swift; sourceTree = "<group>"; };
 		7487B5801E076A3100D4CB9B /* ContactsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsHandler.swift; path = classes/ContactsHandler.swift; sourceTree = "<group>"; };
 		7487B5821E076CB400D4CB9B /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = classes/Common.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				745837921E089662000935B2 /* ContactCell.swift */,
 				74F2611C1E0090190021AA75 /* ViewController.swift */,
+				7458F7CE1E874F8200F98951 /* TransitionAnimator.swift */,
 			);
 			name = AllContacts;
 			sourceTree = "<group>";
@@ -219,13 +222,13 @@
 				7487B5791E0759F600D4CB9B /* Network */,
 				7458378F1E08826F000935B2 /* ViewContact */,
 				74F2611A1E0090190021AA75 /* AppDelegate.swift */,
-				74F2611E1E0090190021AA75 /* Main.storyboard */,
 				74F261241E0090190021AA75 /* Assets.xcassets */,
-				74F261261E0090190021AA75 /* LaunchScreen.storyboard */,
-				74F261291E0090190021AA75 /* Info.plist */,
-				74F261211E0090190021AA75 /* Google_Contacts_Viewer.xcdatamodeld */,
-				7487B5981E07A74F00D4CB9B /* Images */,
 				74D412EB1E009995002E68FB /* Bridging-Header.h */,
+				74F261211E0090190021AA75 /* Google_Contacts_Viewer.xcdatamodeld */,
+				74F261291E0090190021AA75 /* Info.plist */,
+				74F261261E0090190021AA75 /* LaunchScreen.storyboard */,
+				74F2611E1E0090190021AA75 /* Main.storyboard */,
+				7487B5981E07A74F00D4CB9B /* Images */,
 			);
 			path = "Google Contacts Viewer";
 			sourceTree = "<group>";
@@ -446,7 +449,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		71DB64817FF1EF472DA62555 /* [CP] Copy Pods Resources */ = {
@@ -506,7 +509,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C2BECBFDE60807B0E0469DCB /* [CP] Copy Pods Resources */ = {
@@ -551,7 +554,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -566,6 +569,7 @@
 				74F2611B1E0090190021AA75 /* AppDelegate.swift in Sources */,
 				7487B57B1E075A0700D4CB9B /* NetworkController.swift in Sources */,
 				7487B5931E0785EF00D4CB9B /* FetchDelegate.swift in Sources */,
+				7458F7CF1E874F8200F98951 /* TransitionAnimator.swift in Sources */,
 				745837911E088317000935B2 /* ViewContactViewController.swift in Sources */,
 				742ACA5B1E0871BB00EB744B /* UIColor.swift in Sources */,
 				742ACA5E1E08722F00EB744B /* CustomNavigationController.swift in Sources */,
